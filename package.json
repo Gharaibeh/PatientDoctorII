@@ -1,0 +1,27 @@
+{
+  "name": "patientdoctorii",
+  "version": "1.0.0",
+  "description": "Advanced Internet Programming's Project\u001b[1;5D\u001b[C\u001b[1;5C\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5B\u001b[1;5C\u001b[1;5C\u001b[1;5C\u001b[1;5C\u001b[1;5C\u001b[1;5C\u001b[1;5C: Patient Doctor App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gharaibeh/PatientDoctorII.git"
+  },
+  "keywords": [
+    "PatientDoctorII"
+  ],
+  "author": "Hasan Gharaibeh & Arsedian Ivanurrahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gharaibeh/PatientDoctorII/issues"
+  },
+  "homepage": "https://github.com/Gharaibeh/PatientDoctorII#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "sqlite3": "^3.1.9"
+  }
+}
