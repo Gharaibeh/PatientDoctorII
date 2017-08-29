@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <ul>
+        <% sql.forEach(function(patient){ %>
+            <li>
+                <b>Patient Name: </b><%= patient.FirstName + " " + patient.LastName %>
+            
+            </li>
+            
+        <% }); %>
+        </ul>
+    </body>
+
+
+
+</html>

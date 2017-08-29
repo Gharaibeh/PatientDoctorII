@@ -12,19 +12,22 @@ app.get('/', routes.index); //Index route
 
 app.get('/about', routes.about); //About route
 
-app.get('*', routes.badroute); //Handle bad routing
-
 app.get('/patients', function(request, response){
     db.all("SELECT * FROM Patient", function(err, rows){
-        console.log("GET Patients: The database currently contains the following:" + rows);
-        response.send(rows);
+        console.log("GET Patients: The database currently contains the following:" + rows.length + "Record(s)") ;
+        console.log("First Patient is " + rows[0].FirstName + ' ' + rows[0].LastName);
+        response.render('patients', {'sql': rows
+            });
+
     });
-});//Patient form get route
+});//Passing records from SQLite to patients.ejs template
+
 
 app.post('/patients', function(request, response){
-    dn.run("INSERT INTO Patients (FirstName, LastName, Email, DOB, CaseDescription) VALUES ?", request.body)
+    db.run("INSERT INTO Patients (FirstName, LastName, Email, DOB, CaseDescription) VALUES ?", request.body)
 })//Patient form post route
 
+app.get('*', routes.badroute); //Handle bad routing
 
 app.listen(port, function(){
     console.log("Express app listening on port " + port);
