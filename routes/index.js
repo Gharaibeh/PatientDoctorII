@@ -9,3 +9,7 @@ exports.about = function(request, response){
         title: 'About Us'
     });
 }
+
+exports.badroute = function(request, response){
+    response.send('Bad Route');
+}; //Handle bad routing
