@@ -22,9 +22,6 @@ app.get('/patients', function(request, response){
     });
 });//Passing records from SQLite to patients.ejs template
 
-app.locals.appdata = require(db);
-
-
 app.post('/patients', function(request, response){
     db.run("INSERT INTO Patients (FirstName, LastName, Email, DOB, CaseDescription) VALUES ?", request.body)
 })//Patient form post route
