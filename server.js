@@ -12,11 +12,19 @@ app.get('/', routes.index); //Index route
 
 app.get('/about', routes.about); //About route
 
-app.get('/patients', function(request, response){
-    db.all("SELECT * FROM Patient", function(err, rows){
-        console.log("GET Patients: The database currently contains the following:" + rows.length + "Record(s)") ;
-        console.log("First Patient is " + rows[0].FirstName + ' ' + rows[0].LastName);
-        response.render('patients', {'sql': rows
+app.get('/:name?', (request, response) => {
+    
+    let name = request.params.name;
+    let sql = 'SELECT * FROM Patient WHERE FirstName = ?';
+    
+    db.each(sql, name,(err, row) => {
+        if(err){
+            throw err;
+        }
+        
+        console.log(row.FirstName + ' ' + row.LastName);
+        
+        response.render('patient', {'sql': row
             });
 
     });
